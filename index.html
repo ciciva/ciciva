@@ -164,8 +164,43 @@
         </div>
     </section>
 
+   <section id="foro">
+        <div class="container">
+            <div class="card forum">
+                <h2>Foro</h2>
+                <form id="forum-form">
+                    <textarea id="comment" rows="4" placeholder="Escribe tu comentario aquí..."></textarea>
+                    <button type="button" onclick="addComment()">Publicar</button>
+                </form>
+                <div class="comments" id="comments">
+                    <!-- Comentarios publicados aparecerán aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2025 Piratas de la Red. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function addComment() {
+            const commentBox = document.getElementById('comment');
+            const commentText = commentBox.value.trim();
+
+            if (commentText) {
+                const commentsSection = document.getElementById('comments');
+
+                const newComment = document.createElement('div');
+                newComment.className = 'comment';
+                newComment.textContent = commentText;
+
+                commentsSection.appendChild(newComment);
+                commentBox.value = '';
+            } else {
+                alert('Por favor, escribe un comentario antes de publicar.');
+            }
+        }
+    </script>
 </body>
 </html>
